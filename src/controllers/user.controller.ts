@@ -15,6 +15,7 @@ export const createUser = async(req: Request, res: Response) => {
         await user.save()
         res.status(201).json({sucess: true, data: user, message: "Usuario creado exitosamente."})
     } catch (e: any) {
+        if(e.code == 11000) res.status(500).json({success: false, message: "Ya existe un usuario registrado con ese correo electrónico, ingrese uno diferente e intente nuevamente."})
         res.status(500).json({success: false, message: e.errmsg})
     }
 }
