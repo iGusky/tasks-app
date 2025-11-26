@@ -7,6 +7,7 @@ import {errorHandler} from "./middlewares/errorHandler"
 
 import userRoutes from "./routes/user.routes"
 import authRoutes from "./routes/auth.routes"
+import taskRoutes from "./routes/task.routes"
 
 const PORT = process.env.PROT || 3000
 const app = express()
@@ -15,7 +16,8 @@ app.use(express.json())
 app.use(cors())
 
 app.use("/api/users", userRoutes)
-app.use("/auth", authRoutes)
+app.use("/api/auth", authRoutes)
+app.use("/api/tasks", taskRoutes)
 
 app.use(errorHandler)
 

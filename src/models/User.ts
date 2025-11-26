@@ -1,5 +1,5 @@
-import { randomUUIDv7 } from "bun";
 import { model, Schema } from "mongoose";
+import { taskSchema } from "./Task";
 
 
 const userSchema = new Schema({
@@ -7,7 +7,8 @@ const userSchema = new Schema({
     lastname: {type: String, required: true},
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
-    birthdate: {type: Date}
+    birthdate: {type: Date},
+    tasks: {type: [taskSchema]}
 },{
     timestamps: true,
 })
