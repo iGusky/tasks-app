@@ -1,6 +1,6 @@
 {
     "projectColors.mainColor": "#f3ff94",
-    "window.title": "tasks-app",
+    "window.title": "TASKS BACKEND",
     "workbench.colorCustomizations": {
         "statusBarItem.warningBackground": "#f3ff94",
         "statusBarItem.warningForeground": "#000000",
@@ -39,10 +39,13 @@
         "panelTitle.activeBorder": "#ffffa1",
         "activityBar.activeBorder": "#f3ff94",
         "activityBarBadge.foreground": "#000000",
-        "activityBarBadge.background": "#f3ff94"
+        "activityBarBadge.background": "#f3ff94",
+        "activityBar.background": "#f3ff94",
+        "activityBar.foreground": "#000000",
+        "activityBar.inactiveForeground": "#00000090"
     },
-    "projectColors.name": "tasks-app",
-    "projectColors.isActivityBarColored": false,
+    "projectColors.name": "TASKS BACKEND",
+    "projectColors.isActivityBarColored": true,
     "projectColors.isTitleBarColored": false,
     "projectColors.isStatusBarColored": true,
     "projectColors.isProjectNameColored": true,
