@@ -9,6 +9,7 @@ import {errorHandler} from "./middlewares/errorHandler"
 import userRoutes from "./routes/user.routes"
 import authRoutes from "./routes/auth.routes"
 import taskRoutes from "./routes/task.routes"
+import { protectRoute } from "./middlewares/authMiddleware"
 
 const PORT = process.env.PROT || 3000
 const app = express()
@@ -22,7 +23,7 @@ app.use(cookieParser())
 
 app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
-app.use("/api/tasks", taskRoutes)
+app.use("/api/tasks", protectRoute, taskRoutes)
 
 app.use(errorHandler)
 

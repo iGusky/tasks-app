@@ -17,7 +17,7 @@ export const login = async(req: Request, res: Response) => {
     if(!match) throw new AppError("Contraseña incorrecta", 500)
     const maxAge = 24 * 60 * 60;
    
-    const token = jwt.sign({userId: user.id, name: user.name, email: user.email}, JWT_SECRET, {
+    const token = jwt.sign({id: user.id, email: user.email}, JWT_SECRET, {
         expiresIn: maxAge
     });
 
@@ -33,7 +33,7 @@ export const login = async(req: Request, res: Response) => {
 
 export const status = async(req: Request, res: Response) => {
     const token = req.cookies.jwtToken
-    if(!token) return res.status(401)
+    if(!token) return res.status(401).json({success: true, data: false})
     jwt.verify(token, JWT_SECRET, (err: any) => {
         if(err) return res.status(401)
         res.status(200).json({success: true, data: true})
