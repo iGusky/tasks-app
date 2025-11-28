@@ -1,8 +1,7 @@
 import { Router } from "express";
-import { addTask } from "../controllers/task.controller";
-import { protectRoute } from "../middlewares/authMiddleware";
-
+import { addTask, getTasks } from "../controllers/task.controller";
 const router = Router()
 router.post("/", addTask)
+router.get("/", getTasks)
 
 export default router

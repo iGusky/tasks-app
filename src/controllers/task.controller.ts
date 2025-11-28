@@ -24,3 +24,23 @@ export const addTask = async (req: Request, res: Response) => {
     message: "Tarea agregada",
   });
 };
+
+export const getTasks = async (req: Request, res: Response) => {
+  const userData: Token | null = jwt.decode(
+    req.cookies.jwtToken
+  ) as Token | null;
+
+  if (!userData)
+    return res.status(500).json({
+      success: false,
+      message: "No se ha podido verificar su identidad.",
+    });
+
+  const user = await User.findById(userData.id).exec();
+  
+  const tasks = user?.tasks;
+  
+  return res.status(200).json({success: true, data: {
+    tasks: tasks
+  }})
+}
