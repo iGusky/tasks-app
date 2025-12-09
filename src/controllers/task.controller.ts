@@ -2,6 +2,8 @@ import type { Request, Response } from "express";
 import { User } from "../models/User";
 import jwt from "jsonwebtoken";
 import type { Token } from "../types/userToken";
+import { Task } from "../models/Task";
+import { getUserId } from "../utils/getUserId";
 
 export const addTask = async (req: Request, res: Response) => {
   const data = req.body;
@@ -43,4 +45,19 @@ export const getTasks = async (req: Request, res: Response) => {
   return res.status(200).json({success: true, data: {
     tasks: tasks
   }})
+}
+
+export const markAsDone = async (req: Request, res: Response) => {
+  const {taskId} = req.body
+  
+  const userId = getUserId(req);
+  await User.findOneAndUpdate({
+    "_id": userId,
+    "tasks._id": taskId
+  }, {
+    "$set": {
+      "tasks.$.done": true
+    }
+  });
+  return res.status(200).json({success: true})
 }
