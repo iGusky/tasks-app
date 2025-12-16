@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose";
-import { taskSchema } from "./Task";
+import { taskSchema } from "./Task.js";
 
 
 const userSchema = new Schema({

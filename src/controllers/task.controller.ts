@@ -1,9 +1,9 @@
 import type { Request, Response } from "express";
-import { User } from "../models/User";
+import { User } from "../models/User.js";
 import jwt from "jsonwebtoken";
-import type { Token } from "../types/userToken";
-import { Task } from "../models/Task";
-import { getUserId } from "../utils/getUserId";
+import type { Token } from "../types/userToken.js";
+import { Task } from "../models/Task.js";
+import { getUserId } from "../utils/getUserId.js";
 
 export const addTask = async (req: Request, res: Response) => {
   const data = req.body;

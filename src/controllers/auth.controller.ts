@@ -1,8 +1,8 @@
 import { type Request, type Response } from "express";
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
-import { User } from "../models/User"
-import { AppError } from "../config/AppError";
+import { User } from "../models/User.js"
+import { AppError } from "../config/AppError.js";
 
 const JWT_SECRET: string = process.env.JWT_SECRET ?? ""
 export const login = async(req: Request, res: Response) => {
