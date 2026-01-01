@@ -31,7 +31,7 @@ app.use(errorHandler)
 const startServer = async () => {
     await connectDB()
     app.listen(PORT, () => {
-
+        console.log(`Client URL: ${process.env.CLIENT_URL}`)
         console.log(chalk.bold.cyan(`Servidor corriendo en ${chalk.underline(`http://localhost:${PORT}`)} 🚀`))
     })
 }

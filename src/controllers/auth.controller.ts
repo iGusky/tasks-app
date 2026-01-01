@@ -39,3 +39,14 @@ export const status = async(req: Request, res: Response) => {
         res.status(200).json({success: true, data: true})
     })
 }
+
+export const logout = (req: Request, res: Response) => {
+    const maxAge = 24 * 60 * 60;
+    res.clearCookie('jwtToken', { 
+        httpOnly: true,
+        secure: process.env.APP_ENV == "production",
+        sameSite: "lax",
+        maxAge: maxAge * 1000 }
+    )
+    res.status(200).json({success: true, data: true})
+} 
