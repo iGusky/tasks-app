@@ -1,4 +1,5 @@
 # tasks-app
+This app is an implementation of authentication and authorization service done with NodeJS and Express. The focus of this project is to build a JWT service that allow a user to login, logout and validate the current session of the user if it exist.
 
 To install dependencies:
 
